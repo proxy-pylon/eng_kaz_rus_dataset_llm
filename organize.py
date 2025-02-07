@@ -15,8 +15,8 @@ from pydub.utils import mediainfo
 '''
 
 # Configurations
-relative_path = r'AudioTime-train\train5000_duration'
-json_name = r'duration_captions'
+relative_path = r'AudioTime-train\train5000_timestamp'
+json_name = r'timestamp_captions'
 audiofile_extension = r'.wav'
 user_prompts = [
     'summarize this audio',
@@ -45,8 +45,9 @@ def main():
 
     json_with_needed_format = []
 
-    counter = 0
+    counter = 15000
     for audio_data in data:
+        print(audio_data)
         old_name = audio_data
         new_name = old_name + json_name
         old_file_path = os.path.join(audio_path, old_name + audiofile_extension)
@@ -76,10 +77,11 @@ def main():
 
         counter += 1
 
-    output_json_path = os.path.join(current_directory, 'formatted_audio_data.json')
+    output_json_path = os.path.join(folder_path, 'formatted_audio_data.jsonl')
     with open(output_json_path, 'w', encoding='utf-8') as jsn:
-        json.dump(json_with_needed_format, jsn, ensure_ascii=False)
-
+        for entry in json_with_needed_format:
+            json.dump(entry, jsn, ensure_ascii=False)
+            jsn.write('\n')
     print("Finished")
 
 if __name__ == "__main__":
