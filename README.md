@@ -2,4 +2,4 @@ Download ffmpeg from [here](https://phoenixnap.com/kb/ffmpeg-windows), extract i
 
 Dataset itself [forked from](https://github.com/zeyuxie29/AudioTime)
 
-The combined dataset is available at [huggingface](https://huggingface.co/datasets/adilakimshe/eng-kaz-rus-dataset)
+The combined dataset is available at [huggingface](https://huggingface.co/datasets/adilakimshe/eng-kaz-rus-dataset/tree/main)
